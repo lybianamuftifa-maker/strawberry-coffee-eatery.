@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strawberry Coffe & Eatry</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7eef2;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: #a56a7c;
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* HERO */
+        .hero {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),
+                url('https://i.pinimg.com/webp/1200x/85/cd/b7/85cdb761a70e51e94731dedbfa07e4f6.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+        }
+
+        .hero p {
+            margin: 15px 0;
+        }
+
+        .btn {
+            background: #e7c2cc;
+            padding: 12px 25px;
+            text-decoration: none;
+            color: #4a2c34;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        /* SECTION */
+        section {
+            padding: 70px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #a56a7c;
+        }
+
+        /* MENU */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* FOTO KOTAK */
+        .card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #a56a7c;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #b07a8a;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            line-height: 2;
+        }
+
+        .contact a {
+            color: #a56a7c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* CART */
+        .cart-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #a56a7c;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .cart-box {
+            display: none;
+            position: fixed;
+            right: 20px;
+            top: 80px;
+            width: 350px;
+            background: #fff7fa;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+        }
+
+        .total {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #a56a7c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Strawberry Coffe & Eatry</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <h1>Strawberry Coffe & Eatry</h1>
+        <p>🍰Soft Dessert, Sweet Drink's ☕</p>
+        <a href="#menu" class="btn">Pesan Sekarang</a>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu">
+        <h2 class="title">Menu</h2>
+
+        <div class="products">
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/c9/79/42/c97942d08d2c7ba24e0015ba68c691f0.jpg">
+                <h3>Strawberry Dream Smoothie</h3>
+                <p class="price">Rp22.000</p>
+                <button onclick="addCart('Espresso',18000)">Tambah</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/webp/736x/a5/7b/ad/a57bad295cdd48812e92cd6053519850.webp">
+                <h3>Strawberry Matcha Milk</h3>
+                <p class="price">Rp24.000</p>
+                <button onclick="addCart('Americano',20000)">Tambah</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/6a/ac/24/6aac246b1376f7bb92869659807df498.jpg">
+                <h3>Strawberry Sweat Latte</h3>
+                <p class="price">Rp28.000</p>
+                <button onclick="addCart('Cappuccino',28000)">Tambah</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/webp/736x/da/8f/eb/da8feb0f8157ec18d877b02a0e4e88cf.webp">
+                <h3>Strawberry Chessecake</h3>
+                <p class="price">Rp25.000</p>
+                <button onclick="addCart('Latte',25000)">Tambah</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/webp/1200x/5e/10/38/5e10383b6d28536bd27db895e693efdc.webp">
+                <h3>Strawberry Choco Mint</h3>
+                <p class="price">Rp23.000</p>
+                <button onclick="addCart('Latte',25000)">Tambah</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="title">About Us</h2>
+        <p style="text-align:center;">
+            Strawberry Coffe & Eatry hadir dengan vibe soft, aesthetic, dan cocok untuk menemani mood kamu setiap hari.
+        </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="title">Contact</h2>
+
+        <div class="contact">
+            <p>📱 <a href="https://wa.me/6289607039881">WhatsApp</a></p>
+            <p>📧 <a href="mailto:lybianamuftifa@gmail.com">Email</a></p>
+        </div>
+    </section>
+
+    <!-- CART -->
+    <div class="cart-btn" onclick="toggleCart()">
+        🛒 <span id="count">0</span>
+    </div>
+
+    <div class="cart-box" id="cartBox">
+        <h3>Keranjang</h3>
+        <div id="cartItems"></div>
+
+        <div class="total">
+            Total: Rp <span id="total">0</span>
+        </div>
+
+        <select id="payment">
+            <option>DANA</option>
+            <option>OVO</option>
+            <option>GoPay</option>
+            <option>ShopeePay</option>
+            <option>QRIS</option>
+        </select>
+
+        <button onclick="payNow()">Bayar</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Liyaa's Coffee</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            renderCart();
+        }
+
+        function renderCart() {
+            let html = "";
+            cart.forEach(item => {
+                html += `<p>${item.name} - Rp ${item.price.toLocaleString('id-ID')}</p>`;
+            });
+
+            document.getElementById("cartItems").innerHTML = html;
+            document.getElementById("total").innerText = total.toLocaleString('id-ID');
+            document.getElementById("count").innerText = cart.length;
+        }
+
+        function toggleCart() {
+            const box = document.getElementById("cartBox");
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        }
+
+        function payNow() {
+            if (cart.length === 0) {
+                alert("Keranjang masih kosong!");
+                return;
+            }
+
+            let metode = document.getElementById("payment").value;
+
+            alert(
+                "Pembayaran Berhasil (DEMO)\n\n" +
+                "Metode: " + metode +
+                "\nTotal: Rp " + total.toLocaleString('id-ID')
+            );
+
+            cart = [];
+            total = 0;
+            renderCart();
+        }
+    </script>
+
+</body>
+
+</html>
